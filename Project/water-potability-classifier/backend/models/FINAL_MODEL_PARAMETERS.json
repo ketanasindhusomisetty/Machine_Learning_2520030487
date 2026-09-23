@@ -1,0 +1,33 @@
+{
+    "random_forest": {
+        "parameters": {
+            "rf__class_weight": "balanced",
+            "rf__max_depth": 20,
+            "rf__min_samples_leaf": 2,
+            "rf__min_samples_split": 5,
+            "rf__n_estimators": 400
+        },
+        "test_metrics": {
+            "Accuracy": 0.6722560975609756,
+            "Precision": 0.6518518518518519,
+            "Recall": 0.34375,
+            "F1-Score": 0.45012787723785164,
+            "ROC-AUC": 0.662021484375
+        }
+    },
+    "svm": {
+        "parameters": {
+            "svm__C": 1,
+            "svm__class_weight": null,
+            "svm__gamma": 0.1,
+            "svm__kernel": "rbf"
+        },
+        "test_metrics": {
+            "Accuracy": 0.6692073170731707,
+            "Precision": 0.7010309278350515,
+            "Recall": 0.265625,
+            "F1-Score": 0.38526912181303113,
+            "ROC-AUC": 0.650458984375
+        }
+    }
+}
