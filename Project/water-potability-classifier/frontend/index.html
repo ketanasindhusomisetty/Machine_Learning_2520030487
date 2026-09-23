@@ -1,0 +1,1134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Water Quality Classification System</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">💧</div>
+
+            <div>
+                <h1>WaterIQ</h1>
+                <p>ML Classification</p>
+            </div>
+        </div>
+
+        <nav>
+
+            <button
+                class="nav-item active"
+                onclick="showSection('prediction', this)"
+            >
+                <span>🔬</span>
+                Prediction
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="showSection('analytics', this)"
+            >
+                <span>📊</span>
+                Analytics
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="showSection('models', this)"
+            >
+                <span>🤖</span>
+                Models
+            </button>
+
+            <button
+                class="nav-item"
+                onclick="showSection('dataset', this)"
+            >
+                <span>📁</span>
+                Dataset
+            </button>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <div class="api-status">
+                <span class="status-dot"></span>
+                API Connected
+            </div>
+
+            <p>Random Forest + SVM</p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">
+                    MACHINE LEARNING SYSTEM
+                </p>
+
+                <h2>
+                    Water Quality Classification
+                </h2>
+            </div>
+
+            <div class="topbar-badge">
+                2 ML Models
+            </div>
+
+        </header>
+
+
+        <!-- ================================= -->
+        <!-- PREDICTION SECTION -->
+        <!-- ================================= -->
+
+        <section
+            id="prediction"
+            class="page-section active-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <h3>Water Quality Prediction</h3>
+
+                    <p>
+                        Enter the measured water-quality parameters
+                        to classify the sample.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <!-- Input Card -->
+
+                <div class="card input-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h4>Sample Parameters</h4>
+
+                            <p>
+                                Enter values for all nine features.
+                            </p>
+                        </div>
+
+                        <span class="card-tag">
+                            INPUT
+                        </span>
+
+                    </div>
+
+
+                    <form id="predictionForm">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="ph">
+                                    pH
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="ph"
+                                    step="any"
+                                    placeholder="e.g. 7.2"
+                                    required
+                                >
+
+                                <span>
+                                    Range: 0 – 14
+                                </span>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Hardness">
+                                    Hardness
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Hardness"
+                                    step="any"
+                                    placeholder="e.g. 200"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Solids">
+                                    Solids
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Solids"
+                                    step="any"
+                                    placeholder="e.g. 21000"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Chloramines">
+                                    Chloramines
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Chloramines"
+                                    step="any"
+                                    placeholder="e.g. 7"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Sulfate">
+                                    Sulfate
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Sulfate"
+                                    step="any"
+                                    placeholder="e.g. 330"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Conductivity">
+                                    Conductivity
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Conductivity"
+                                    step="any"
+                                    placeholder="e.g. 425"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Organic_carbon">
+                                    Organic Carbon
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Organic_carbon"
+                                    step="any"
+                                    placeholder="e.g. 14"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Trihalomethanes">
+                                    Trihalomethanes
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Trihalomethanes"
+                                    step="any"
+                                    placeholder="e.g. 66"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="Turbidity">
+                                    Turbidity
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="Turbidity"
+                                    step="any"
+                                    placeholder="e.g. 4.0"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                class="secondary-btn"
+                                onclick="loadExample()"
+                            >
+                                Load Example
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-btn"
+                            >
+                                Analyze Water
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+                <!-- Prediction Result -->
+
+                <div class="card result-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h4>Prediction Result</h4>
+
+                            <p>
+                                Output from your trained models.
+                            </p>
+                        </div>
+
+                        <span
+                            id="agreementBadge"
+                            class="card-tag"
+                        >
+                            WAITING
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        id="predictionPlaceholder"
+                        class="placeholder"
+                    >
+
+                        <div class="placeholder-icon">
+                            💧
+                        </div>
+
+                        <h4>
+                            Ready for analysis
+                        </h4>
+
+                        <p>
+                            Enter the water-quality values and
+                            click Analyze Water.
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        id="predictionResults"
+                        class="results-hidden"
+                    >
+
+                        <div class="model-result">
+
+                            <div class="model-result-top">
+
+                                <div>
+                                    <span class="result-label">
+                                        RANDOM FOREST
+                                    </span>
+
+                                    <h4
+                                        id="rfClassification"
+                                    >
+                                        —
+                                    </h4>
+                                </div>
+
+                                <div
+                                    id="rfIcon"
+                                    class="result-icon"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <div class="probability">
+
+                                <div class="probability-header">
+
+                                    <span>
+                                        Potable probability
+                                    </span>
+
+                                    <strong
+                                        id="rfProbability"
+                                    >
+                                        0%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress">
+
+                                    <div
+                                        id="rfProgress"
+                                        class="progress-bar"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="model-result">
+
+                            <div class="model-result-top">
+
+                                <div>
+                                    <span class="result-label">
+                                        SUPPORT VECTOR MACHINE
+                                    </span>
+
+                                    <h4
+                                        id="svmClassification"
+                                    >
+                                        —
+                                    </h4>
+                                </div>
+
+                                <div
+                                    id="svmIcon"
+                                    class="result-icon"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <div class="probability">
+
+                                <div class="probability-header">
+
+                                    <span>
+                                        Potable probability
+                                    </span>
+
+                                    <strong
+                                        id="svmProbability"
+                                    >
+                                        0%
+                                    </strong>
+
+                                </div>
+
+                                <div class="progress">
+
+                                    <div
+                                        id="svmProgress"
+                                        class="progress-bar"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="agreementMessage"
+                            class="agreement-message"
+                        >
+                            —
+                        </div>
+
+
+                        <div class="disclaimer">
+
+                            ML predictions are model estimates and
+                            should not be treated as laboratory or
+                            regulatory certification of drinking-water
+                            safety.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- ANALYTICS SECTION -->
+        <!-- ================================= -->
+
+        <section
+            id="analytics"
+            class="page-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h3>Model Analytics</h3>
+
+                    <p>
+                        Evaluation results from the held-out test set.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="metric-grid">
+
+                <div class="metric-card">
+                    <span>Random Forest Accuracy</span>
+                    <strong id="rfAccuracy">66.01%</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>SVM Accuracy</span>
+                    <strong id="svmAccuracy">62.04%</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Random Forest ROC-AUC</span>
+                    <strong id="rfAuc">66.70%</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>SVM ROC-AUC</span>
+                    <strong id="svmAuc">64.40%</strong>
+                </div>
+
+            </div>
+
+
+
+<div class="metric-grid detailed-metrics-grid">
+
+    <div class="metric-card">
+        <span>RF Precision</span>
+        <strong id="rfPrecision">—</strong>
+    </div>
+
+    <div class="metric-card">
+        <span>RF Recall</span>
+        <strong id="rfRecall">—</strong>
+    </div>
+
+    <div class="metric-card">
+        <span>RF F1-Score</span>
+        <strong id="rfF1">—</strong>
+    </div>
+
+    <div class="metric-card">
+        <span>SVM Precision</span>
+        <strong id="svmPrecision">—</strong>
+    </div>
+
+    <div class="metric-card">
+        <span>SVM Recall</span>
+        <strong id="svmRecall">—</strong>
+    </div>
+
+    <div class="metric-card">
+        <span>SVM F1-Score</span>
+        <strong id="svmF1">—</strong>
+    </div>
+
+</div>
+
+
+            <div class="chart-grid">
+
+                <div class="card chart-card">
+
+                    <div class="card-header">
+                        <h4>Model Performance</h4>
+                    </div>
+
+                    <canvas id="comparisonChart"></canvas>
+
+                </div>
+
+
+                <div class="card chart-card">
+
+                    <div class="card-header">
+                        <h4>ROC Curves</h4>
+                    </div>
+
+                    <img
+                        src="results/final_roc_curve.png"
+                        alt="ROC Curve"
+                        class="result-image"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-grid">
+
+                <div class="card chart-card">
+
+                    <div class="card-header">
+                        <h4>Random Forest Confusion Matrix</h4>
+                    </div>
+
+                    <img
+                        src="results/random_forest_confusion_matrix.png"
+                        alt="Random Forest Confusion Matrix"
+                        class="result-image"
+                    >
+
+                </div>
+
+
+                <div class="card chart-card">
+
+                    <div class="card-header">
+                        <h4>SVM Confusion Matrix</h4>
+                    </div>
+
+                    <img
+                        src="results/svm_confusion_matrix.png"
+                        alt="SVM Confusion Matrix"
+                        class="result-image"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="card chart-card">
+
+                <div class="card-header">
+                    <h4>Random Forest Feature Importance</h4>
+                </div>
+
+                <img
+                    src="results/random_forest_feature_importance.png"
+                    alt="Feature Importance"
+                    class="result-image wide"
+                >
+
+            </div>
+
+        </section>
+
+
+
+<div class="chart-grid">
+
+    <div class="card chart-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h4>Dataset Class Distribution</h4>
+
+                <p>
+                    Distribution of potable and
+                    non-potable samples.
+                </p>
+
+            </div>
+
+        </div>
+
+        <canvas id="classChart"></canvas>
+
+    </div>
+
+
+    <div class="card chart-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h4>Evaluation Metric Note</h4>
+
+                <p>
+                    Why MSE and MAE are not shown as
+                    model-performance metrics.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="metric-explanation">
+
+            <div>
+                <strong>Classification Task</strong>
+
+                <span>
+                    The target is binary:
+                    Potable (1) or Not Potable (0).
+                </span>
+            </div>
+
+            <div>
+                <strong>Primary Metrics</strong>
+
+                <span>
+                    Accuracy, Precision, Recall,
+                    F1-Score and ROC-AUC are used.
+                </span>
+            </div>
+
+            <div>
+                <strong>MSE / MAE</strong>
+
+                <span>
+                    These are primarily regression
+                    error metrics and are not used
+                    as the primary evaluation here.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        <!-- ================================= -->
+        <!-- MODELS SECTION -->
+        <!-- ================================= -->
+
+        <section
+            id="models"
+            class="page-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h3>Machine Learning Models</h3>
+
+                    <p>
+                        Models used in the classification system.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-grid">
+
+                <div class="card model-card">
+
+                    <div class="model-number">
+                        RF
+                    </div>
+
+                    <h4>
+                        Random Forest
+                    </h4>
+
+                    <p>
+                        Ensemble learning model based on multiple
+                        decision trees.
+                    </p>
+
+                    <div class="model-stats">
+
+                        <div>
+                            <span>Test Accuracy</span>
+                            <strong id="rfModelAccuracy">67.23%</strong>
+                        </div>
+
+                        <div>
+                            <span>Test ROC-AUC</span>
+                            <strong id="rfModelAuc">66.20%</strong>
+                        </div>
+
+                        <div>
+                            <span>Test F1</span>
+                            <strong id="rfModelF1">45.01%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="card model-card">
+
+                    <div class="model-number">
+                        SVM
+                    </div>
+
+                    <h4>
+                        Support Vector Machine
+                    </h4>
+
+                    <p>
+                        RBF-kernel classifier using standardized
+                        water-quality measurements.
+                    </p>
+
+                    <div class="model-stats">
+
+                        <div>
+                            <span>Test Accuracy</span>
+                            <strong id="svmModelAccuracy">66.92%</strong>
+                        </div>
+
+                        <div>
+                            <span>Test ROC-AUC</span>
+                            <strong id="svmModelAuc">65.05%</strong>
+                        </div>
+
+                        <div>
+                            <span>Test F1</span>
+                            <strong id="svmModelF1">38.53%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+<div class="model-grid">
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h4>Final Random Forest Parameters</h4>
+
+                <p>
+                    Selected during accuracy-focused
+                    model optimization.
+                </p>
+
+            </div>
+
+        </div>
+
+        <pre
+            id="rfParams"
+            class="parameter-box"
+        >Loading...</pre>
+
+    </div>
+
+
+    <div class="card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h4>Final SVM Parameters</h4>
+
+                <p>
+                    Selected during accuracy-focused
+                    model optimization.
+                </p>
+
+            </div>
+
+        </div>
+
+        <pre
+            id="svmParams"
+            class="parameter-box"
+        >Loading...</pre>
+
+    </div>
+
+</div>
+
+
+            <div class="card information-card">
+
+                <h4>Training Configuration</h4>
+
+                <div class="info-grid">
+
+                    <div>
+                        <span>Dataset Samples</span>
+                        <strong id="datasetTotal">3,276</strong>
+                    </div>
+
+                    <div>
+                        <span>Input Features</span>
+                        <strong id="datasetFeatures">9</strong>
+                    </div>
+
+                    <div>
+                        <span>Training Samples</span>
+                        <strong id="datasetTrain">2,620</strong>
+                    </div>
+
+                    <div>
+                        <span>Test Samples</span>
+                        <strong id="datasetTest">656</strong>
+                    </div>
+
+                    <div>
+                        <span>Validation Strategy</span>
+                        <strong>5-Fold CV</strong>
+                    </div>
+
+                    <div>
+                        <span>Split Strategy</span>
+                        <strong>80 / 20 Stratified</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- DATASET SECTION -->
+        <!-- ================================= -->
+
+        <section
+            id="dataset"
+            class="page-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h3>Dataset Overview</h3>
+
+                    <p>
+                        Water-quality dataset used for model training.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="metric-grid">
+
+                <div class="metric-card">
+                    <span>Total Samples</span>
+                    <strong id="datasetTotal">3,276</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Water Features</span>
+                    <strong>9</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Not Potable</span>
+                    <strong>1,998</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Potable</span>
+                    <strong>1,278</strong>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h4>
+                            Water Quality Features
+                        </h4>
+
+                    </div>
+
+                </div>
+
+
+<div class="info-grid">
+
+    <div>
+        <span>Not Potable Samples</span>
+        <strong id="datasetNotPotable">
+            1,998
+        </strong>
+    </div>
+
+    <div>
+        <span>Potable Samples</span>
+        <strong id="datasetPotable">
+            1,278
+        </strong>
+    </div>
+
+    <div>
+        <span>Not Potable</span>
+        <strong id="datasetNotPotablePercent">
+            60.99%
+        </strong>
+    </div>
+
+    <div>
+        <span>Potable</span>
+        <strong id="datasetPotablePercent">
+            39.01%
+        </strong>
+    </div>
+
+</div>
+
+
+                <div class="feature-table">
+
+                    <div class="feature-row header-row">
+                        <span>Feature</span>
+                        <span>Description</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>pH</span>
+                        <span>Acidity / alkalinity measurement</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Hardness</span>
+                        <span>Water hardness measurement</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Solids</span>
+                        <span>Total dissolved solids</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Chloramines</span>
+                        <span>Chloramine concentration</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Sulfate</span>
+                        <span>Sulfate concentration</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Conductivity</span>
+                        <span>Electrical conductivity</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Organic Carbon</span>
+                        <span>Organic carbon measurement</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Trihalomethanes</span>
+                        <span>Trihalomethane concentration</span>
+                    </div>
+
+                    <div class="feature-row">
+                        <span>Turbidity</span>
+                        <span>Water cloudiness measurement</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
