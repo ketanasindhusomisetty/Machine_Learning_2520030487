@@ -1,0 +1,226 @@
+{
+    "dataset": {
+        "name": "Water Potability Dataset",
+        "total_samples": 3276,
+        "feature_count": 9,
+        "features": [
+            "ph",
+            "Hardness",
+            "Solids",
+            "Chloramines",
+            "Sulfate",
+            "Conductivity",
+            "Organic_carbon",
+            "Trihalomethanes",
+            "Turbidity"
+        ],
+        "training_samples": 2620,
+        "testing_samples": 656,
+        "train_percentage": 80,
+        "test_percentage": 20,
+        "not_potable": 1998,
+        "potable": 1278,
+        "not_potable_percentage": 60.99,
+        "potable_percentage": 39.01
+    },
+    "final_test": {
+        "random_forest": {
+            "name": "Final Random Forest",
+            "Accuracy": 0.6722560975609756,
+            "Precision": 0.6518518518518519,
+            "Recall": 0.34375,
+            "F1-Score": 0.45012787723785164,
+            "ROC-AUC": 0.662021484375
+        },
+        "svm": {
+            "name": "Final SVM",
+            "Accuracy": 0.6692073170731707,
+            "Precision": 0.7010309278350515,
+            "Recall": 0.265625,
+            "F1-Score": 0.38526912181303113,
+            "ROC-AUC": 0.650458984375
+        }
+    },
+    "cross_validation": {
+        "folds": 5,
+        "random_forest": {
+            "accuracy": {
+                "mean": 0.6812977099236642,
+                "std": 0.016012348827025197,
+                "folds": [
+                    0.6908396946564885,
+                    0.6698473282442748,
+                    0.6793893129770993,
+                    0.7061068702290076,
+                    0.6603053435114504
+                ]
+            },
+            "precision": {
+                "mean": 0.6580488796149899,
+                "std": 0.029141393697071867,
+                "folds": [
+                    0.6842105263157895,
+                    0.6260162601626016,
+                    0.6666666666666666,
+                    0.6917293233082706,
+                    0.6216216216216216
+                ]
+            },
+            "recall": {
+                "mean": 0.37962219033955047,
+                "std": 0.03836426989785406,
+                "folds": [
+                    0.38235294117647056,
+                    0.37745098039215685,
+                    0.35294117647058826,
+                    0.44878048780487806,
+                    0.33658536585365856
+                ]
+            },
+            "f1": {
+                "mean": 0.4808280140982145,
+                "std": 0.03619314720628758,
+                "folds": [
+                    0.49056603773584906,
+                    0.4709480122324159,
+                    0.46153846153846156,
+                    0.5443786982248521,
+                    0.43670886075949367
+                ]
+            },
+            "roc_auc": {
+                "mean": 0.6932397298318365,
+                "std": 0.012092470933507357,
+                "folds": [
+                    0.6976868872549019,
+                    0.6857230392156862,
+                    0.6779871323529412,
+                    0.7136784157810231,
+                    0.6911231745546296
+                ]
+            }
+        },
+        "svm": {
+            "accuracy": {
+                "mean": 0.6790076335877864,
+                "std": 0.014653705206452261,
+                "folds": [
+                    0.7041984732824428,
+                    0.6698473282442748,
+                    0.6793893129770993,
+                    0.6812977099236641,
+                    0.6603053435114504
+                ]
+            },
+            "precision": {
+                "mean": 0.7224792002147075,
+                "std": 0.04170438630968144,
+                "folds": [
+                    0.8024691358024691,
+                    0.691358024691358,
+                    0.725,
+                    0.6979166666666666,
+                    0.6956521739130435
+                ]
+            },
+            "recall": {
+                "mean": 0.2876853180296509,
+                "std": 0.033289782978446855,
+                "folds": [
+                    0.31862745098039214,
+                    0.27450980392156865,
+                    0.28431372549019607,
+                    0.32682926829268294,
+                    0.23414634146341465
+                ]
+            },
+            "f1": {
+                "mean": 0.41062423979980744,
+                "std": 0.03798194935121811,
+                "folds": [
+                    0.45614035087719296,
+                    0.3929824561403509,
+                    0.4084507042253521,
+                    0.44518272425249167,
+                    0.35036496350364965
+                ]
+            },
+            "roc_auc": {
+                "mean": 0.701292606608933,
+                "std": 0.01716301183912491,
+                "folds": [
+                    0.7160845588235294,
+                    0.7007046568627451,
+                    0.6888633578431372,
+                    0.7238320972551417,
+                    0.6769783622601115
+                ]
+            }
+        }
+    },
+    "hyperparameters": {
+        "random_forest": {
+            "rf__class_weight": "balanced",
+            "rf__max_depth": "20",
+            "rf__min_samples_leaf": "2",
+            "rf__min_samples_split": "5",
+            "rf__n_estimators": "400"
+        },
+        "svm": {
+            "C": "1",
+            "class_weight": "None",
+            "gamma": "0.1",
+            "kernel": "rbf"
+        }
+    },
+    "feature_importance": [
+        {
+            "feature": "ph",
+            "importance": 0.13746410591571168
+        },
+        {
+            "feature": "Sulfate",
+            "importance": 0.13264196405765147
+        },
+        {
+            "feature": "Hardness",
+            "importance": 0.12254464815134482
+        },
+        {
+            "feature": "Chloramines",
+            "importance": 0.11669461078841108
+        },
+        {
+            "feature": "Solids",
+            "importance": 0.11197058043882924
+        },
+        {
+            "feature": "Conductivity",
+            "importance": 0.09876184483514734
+        },
+        {
+            "feature": "Turbidity",
+            "importance": 0.09534788560375651
+        },
+        {
+            "feature": "Organic_carbon",
+            "importance": 0.09304319310094622
+        },
+        {
+            "feature": "Trihalomethanes",
+            "importance": 0.09153116710820167
+        }
+    ],
+    "evaluation_notes": {
+        "primary_metrics": [
+            "Accuracy",
+            "Precision",
+            "Recall",
+            "F1-Score",
+            "ROC-AUC"
+        ],
+        "mse": "Not used - this is a classification problem",
+        "mae": "Not used - this is a classification problem",
+        "test_set_policy": "The held-out test set was not used during hyperparameter tuning."
+    }
+}
