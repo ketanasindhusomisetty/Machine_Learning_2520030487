@@ -1,0 +1,31 @@
+{
+    "project_name": "ML-Based Water Quality Classification System",
+    "models": [
+        "Random Forest",
+        "Support Vector Machine"
+    ],
+    "dataset_samples": 3276,
+    "input_features": 9,
+    "training_samples": 2620,
+    "testing_samples": 656,
+    "target": {
+        "0": "Not Potable",
+        "1": "Potable"
+    },
+    "final_test_results": {
+        "Random Forest": {
+            "Accuracy": 0.6722560975609756,
+            "Precision": 0.6518518518518519,
+            "Recall": 0.34375,
+            "F1-Score": 0.45012787723785164,
+            "ROC-AUC": 0.662021484375
+        },
+        "SVM": {
+            "Accuracy": 0.6692073170731707,
+            "Precision": 0.7010309278350515,
+            "Recall": 0.265625,
+            "F1-Score": 0.38526912181303113,
+            "ROC-AUC": 0.650458984375
+        }
+    }
+}
