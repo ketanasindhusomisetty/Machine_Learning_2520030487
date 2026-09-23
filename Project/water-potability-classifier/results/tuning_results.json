@@ -1,0 +1,18 @@
+{
+    "random_forest": {
+        "best_parameters": {
+            "max_depth": 10,
+            "min_samples_leaf": 2,
+            "min_samples_split": 5,
+            "n_estimators": 200
+        },
+        "best_cv_f1": 0.49379460061643005
+    },
+    "svm": {
+        "best_parameters": {
+            "svm__C": 1,
+            "svm__gamma": "scale"
+        },
+        "best_cv_f1": 0.5719858716948871
+    }
+}
