@@ -389,13 +389,10 @@ function setWidth(id, value) {
 // ============================================
 
 async function loadAnalytics() {
-
     try {
-
-        const response =
-            await fetch(
-                "results/analytics.json"
-            );
+        const response = await fetch(
+            "results/FINAL_analytics.json"
+        );
 
         if (!response.ok) {
             throw new Error(
@@ -403,13 +400,13 @@ async function loadAnalytics() {
             );
         }
 
-        const data =
-            await response.json();
+        const data = await response.json();
+
+        console.log("Analytics data loaded:", data);
 
         renderAnalytics(data);
 
     } catch (error) {
-
         console.error(
             "Analytics loading error:",
             error
@@ -1069,6 +1066,9 @@ function renderClassChart(data) {
 
     const dataset =
         data.dataset;
+
+        console.log("RF DATA:", rf);
+        console.log("SVM DATA:", svm);
 
     classChart =
         new Chart(
